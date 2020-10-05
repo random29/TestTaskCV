@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body>
+
+<form data-th-action="@{/add-cv}">
+    <button class="waves-effect waves-light btn" type="submit">Add CV to database.</button>
+</form>
+<d>CV List:</d>
+<p data-th-if="${cvs.size() == 0}" class="no-items"><br/>No CV's yet.</p>
+<ul class="collection">
+    <li class="collection-item" data-th-each="cv : ${cvs}">
+        <a data-th-href="@{/{id} (id=${cv.id}) }">
+            <span data-th-text="${cv.name}"></span>
+            <span data-th-text="${cv.date}"></span>
+        </a>
+    </li>
+</ul>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/sticky.js"></script>
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="https://github.com/random29/" class="icon fa-github"><span class="label">GitHub profile</span></a>
+        </li>
+        <li><a href="mailto:ilyin@ctemplar.com" class="icon fa-envelope-o"><span class="label">Email me</span></a></li>
+        <li><a href="/" class="icon fa-home"><span class="label">Home</span></a></li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; Ильин Илья, 2020</li>
+    </ul>
+</footer>
+</body>
+</html>
